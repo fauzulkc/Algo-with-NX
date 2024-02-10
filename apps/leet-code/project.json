@@ -1,0 +1,56 @@
+{
+  "name": "leet-code",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/leet-code/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "platform": "node",
+        "outputPath": "dist/apps/leet-code",
+        "format": ["cjs"],
+        "bundle": false,
+        "main": "apps/leet-code/src/main.ts",
+        "tsConfig": "apps/leet-code/tsconfig.app.json",
+        "assets": ["apps/leet-code/src/assets"],
+        "generatePackageJson": true,
+        "esbuildOptions": {
+          "sourcemap": true,
+          "outExtension": {
+            ".js": ".js"
+          }
+        }
+      },
+      "configurations": {
+        "development": {},
+        "production": {
+          "esbuildOptions": {
+            "sourcemap": false,
+            "outExtension": {
+              ".js": ".js"
+            }
+          }
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "leet-code:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "leet-code:build:development"
+        },
+        "production": {
+          "buildTarget": "leet-code:build:production"
+        }
+      }
+    }
+  },
+  "tags": ["algo"]
+}
