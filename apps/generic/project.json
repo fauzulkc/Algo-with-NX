@@ -1,0 +1,56 @@
+{
+  "name": "generic",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/generic/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "platform": "node",
+        "outputPath": "dist/apps/generic",
+        "format": ["cjs"],
+        "bundle": false,
+        "main": "apps/generic/src/main.ts",
+        "tsConfig": "apps/generic/tsconfig.app.json",
+        "assets": ["apps/generic/src/assets"],
+        "generatePackageJson": true,
+        "esbuildOptions": {
+          "sourcemap": true,
+          "outExtension": {
+            ".js": ".js"
+          }
+        }
+      },
+      "configurations": {
+        "development": {},
+        "production": {
+          "esbuildOptions": {
+            "sourcemap": false,
+            "outExtension": {
+              ".js": ".js"
+            }
+          }
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "generic:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "generic:build:development"
+        },
+        "production": {
+          "buildTarget": "generic:build:production"
+        }
+      }
+    }
+  },
+  "tags": []
+}
