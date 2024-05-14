@@ -7,8 +7,14 @@
 
 import checkMultiples from '../problems/multiples-sum-below-natural-numbers';
 
-describe('check multiples of 3 and 5', () => {
+describe('check multiples of 3 and 5 below 10', () => {
   it('should return 23', () => {
     expect(checkMultiples(10, [3, 5])).toBe(23);
+  });
+});
+
+describe('check multiples of 3 and 5 below 1000', () => {
+  it('should return 23', () => {
+    expect(checkMultiples(1000, [3, 5])).toBe(233168);
   });
 });

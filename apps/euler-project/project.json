@@ -1,7 +1,7 @@
 {
-  "name": "generic",
+  "name": "euler-project",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/generic/src",
+  "sourceRoot": "apps/euler-project/src",
   "projectType": "application",
   "targets": {
     "build": {
@@ -10,12 +10,12 @@
       "defaultConfiguration": "production",
       "options": {
         "platform": "node",
-        "outputPath": "dist/apps/generic",
+        "outputPath": "dist/apps/euler-project",
         "format": ["cjs"],
         "bundle": false,
-        "main": "apps/generic/src/main.ts",
-        "tsConfig": "apps/generic/tsconfig.app.json",
-        "assets": ["apps/generic/src/assets"],
+        "main": "apps/euler-project/src/main.ts",
+        "tsConfig": "apps/euler-project/tsconfig.app.json",
+        "assets": ["apps/euler-project/src/assets"],
         "generatePackageJson": true,
         "esbuildOptions": {
           "sourcemap": true,
@@ -40,14 +40,14 @@
       "executor": "@nx/js:node",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "generic:build"
+        "buildTarget": "euler-project:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "generic:build:development"
+          "buildTarget": "euler-project:build:development"
         },
         "production": {
-          "buildTarget": "generic:build:production"
+          "buildTarget": "euler-project:build:production"
         }
       }
     }
