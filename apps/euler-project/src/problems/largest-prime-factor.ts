@@ -11,6 +11,5 @@ export const checkLargestPrimeFactor = (number: number): number => {
     }
     factor++;
   }
-  console.log('largest factor is: ', lastFactor);
   return lastFactor;
 };
