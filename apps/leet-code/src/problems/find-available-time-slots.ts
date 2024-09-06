@@ -13,7 +13,7 @@ export function AvailableTimeSlots ( duration: number, bookedEvents: number[][] 
         }
         currentTime = currentTime + duration < bookedEvents[ e ][ 0 ] ? currentTime++ : bookedEvents[ e ][ 1 ];
     }
-    for ( let j = currentTime; j + duration < TotalMinutesInADay; j += duration ) {
+    for ( let j = currentTime; j + duration <= TotalMinutesInADay; j += duration ) {
         totalSlots.push( [ j, j + duration ] );
     }
     console.log( { totalSlots } );
